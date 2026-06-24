@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+*.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# PyTorch / Checkpoints (keep named pre-trained models)
+*.ckpt
+*.h5
+*.pkl
+*.npz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+
+# Dataset images (keep directory structure)
+common/dataset/*.jpg
+common/dataset/*.png
+common/dataset/*.jpeg
+common/dataset/*.webp
+
+# Test outputs
+test_output/
+results/
+
+# Distribution
+*.tar.gz
+*.zip
+*.rar
