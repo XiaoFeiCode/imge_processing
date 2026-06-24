@@ -1,6 +1,10 @@
 # 导入必要的库
 import sys
 import os as _os
+
+# 计算项目根目录（web_app.py 所在目录的上一级）
+_PROJECT_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+
 # 确保项目根目录在 sys.path 中（支持直接运行 web_app.py）
 sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), '..'))
 
@@ -25,7 +29,7 @@ from PIL import Image  # PIL图像处理库
 
 
 # 创建Flask应用实例，设置静态文件夹为'dataset'
-app = Flask(__name__, static_folder='../common/dataset')
+app = Flask(__name__, static_folder=_os.path.join(_PROJECT_ROOT, 'common', 'dataset'))
 
 # 添加一个新的路由来提供Logo文件
 @app.route('/logo/<filename>')
@@ -46,14 +50,16 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 print("正在加载去噪模型")
 denoiser = denoising_model.ConvDenoise()
 denoiser.load_state_dict(torch.load(
-    os.path.join('../image_denoising', denoising_config.DENOISER_MODEL_NAME), map_location=device))
+    os.path.join(_PROJECT_ROOT, 'image_denoising', denoising_config.DENOISER_MODEL_NAME),
+    map_location=device))
 denoiser.to(device)
 print("去噪模型加载完毕")
 
 print("正在加载分类模型")
 classifier = classification_model.Classifier()
 classifier.load_state_dict(torch.load(
-    os.path.join('../image_class', classification_config.CLASSIFIER_MODEL_NAME), map_location=device))
+    os.path.join(_PROJECT_ROOT, 'image_class', classification_config.CLASSIFIER_MODEL_NAME),
+    map_location=device))
 classifier.to(device)
 print("分类模型加载完毕")
 
@@ -62,10 +68,8 @@ print("正在加载嵌入模型")
 encoder = similarity_model.ConvEncoder()  # 初始化编码器
 # 加载编码器的预训练权重（自动处理设备映射）
 encoder.load_state_dict(
-    torch.load(
-        os.path.join(
-            '..',
-            similarity_config.PACKAGE_NAME, similarity_config.ENCODER_MODEL_NAME),
+    torch.load(os.path.join(
+        _PROJECT_ROOT, similarity_config.PACKAGE_NAME, similarity_config.ENCODER_MODEL_NAME),
         map_location=device))
 encoder.to(device)  # 将模型移动到指定设备
 print("嵌入模型加载完毕")
@@ -73,7 +77,7 @@ print("嵌入模型加载完毕")
 print("正在加载向量数据库")
 # 加载预存嵌入矩阵
 embedding = np.load(os.path.join(
-    '..',
+    _PROJECT_ROOT,
     similarity_config.PACKAGE_NAME,
     similarity_config.EMBEDDING_NAME)
 )

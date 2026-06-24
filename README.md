@@ -9,6 +9,12 @@
 
 ---
 
+## 界面预览
+
+![FashionVision 全功能截图](imgs__display/all_function.png)
+
+---
+
 ## ✨ 功能特性
 
 | 功能 | 说明 | 技术方案 |
@@ -62,9 +68,12 @@ imge_processing/
 ├── web/                           # 🌐 Web 应用
 │   ├── web_app.py                 # Flask 后端（端口 9000）
 │   ├── templates/
-│   │   └── index.html             # 前端页面（上传 + 结果展示）
-│   ├── pictures/                  # 页面图标与预览图
+│   │   └── index.html             # 前端页面（现代化 UI）
+│   ├── pictures/                  # 页面图标
 │   └── __init__.py
+│
+├── imgs__display/                 # 📸 展示截图
+│   └── all_function.png           # 全功能运行截图
 │
 └── test/                          # Jupyter Notebook 测试
     ├── 1_apple_test.ipynb
@@ -134,7 +143,7 @@ Decoder: 5×[ConvTranspose → ReLU] + Sigmoid
 git clone https://github.com/XiaoFeiCode/imge_processing.git
 cd imge_processing
 
-# 2. 创建虚拟环境（推荐）
+# 2. 创建虚拟环境
 python -m venv venv
 # Windows
 venv\Scripts\activate
@@ -169,22 +178,18 @@ python -m image_similiar.similarity_train
 ### 启动 Web 服务
 
 ```bash
-# 从项目根目录启动（推荐）
+# 从项目根目录启动
 python -m web.web_app
-
-# 或者进入 web 目录运行
-cd web
-python web_app.py
 ```
 
 浏览器访问 **http://localhost:9000** 即可使用。
 
 ### Web 界面功能
 
-1. **上传图片** — 点击"上传"按钮或拖拽图片到上传区
-2. **图像去噪** — 点击"去噪"，对比展示加噪图与去噪结果
-3. **图像分类** — 点击"分类"，显示识别出的商品类别
-4. **以图搜图** — 点击"相似"，展示 Top-5 最相似的商品图片
+1. **上传图片** — 点击"上传预览"或拖拽图片到上传区
+2. **图像去噪** — 点击"🧹 图像去噪"，对比展示加噪图与去噪结果
+3. **商品分类** — 点击"🔍 商品分类"，显示识别出的商品类别
+4. **相似商品** — 点击"🖼️ 相似商品"，展示 Top-5 最相似的商品图片
 
 ---
 
@@ -209,9 +214,9 @@ python web_app.py
 |------|------|
 | **深度学习框架** | PyTorch, torchvision |
 | **Web 后端** | Flask |
+| **前端** | HTML5, CSS3, JavaScript (原生) — 现代化渐变色 UI |
 | **数值计算** | NumPy, scikit-learn |
 | **图像处理** | Pillow (PIL) |
-| **前端** | HTML5, CSS3, JavaScript (原生) |
 | **训练辅助** | tqdm, pandas |
 
 ---
