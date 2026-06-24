@@ -1,15 +1,11 @@
-# 🧭 智图寻宝 — Image Processing Platform
+# 🧭 FashionVision — 深度学习时尚图像分析平台
 
-> 基于深度学习的图像智能处理平台，集成了**图像分类**、**图像去噪**、**以图搜图**三大核心功能，并提供直观的 Web 交互界面。
+> 基于深度学习的时尚商品图像智能处理平台，集成**图像分类**、**图像去噪**、**以图搜图**三大核心功能，并提供直观的 Web 交互界面。
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.0+-black.svg)](https://flask.palletsprojects.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-<p align="center">
-  <img src="web/logo/logo.jpg" alt="智图寻宝 Logo" width="200">
-</p>
 
 ---
 
@@ -67,7 +63,6 @@ imge_processing/
 │   ├── web_app.py                 # Flask 后端（端口 9000）
 │   ├── templates/
 │   │   └── index.html             # 前端页面（上传 + 结果展示）
-│   ├── logo/                      # Logo 资源
 │   ├── pictures/                  # 页面图标与预览图
 │   └── __init__.py
 │
